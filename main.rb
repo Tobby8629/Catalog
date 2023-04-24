@@ -4,7 +4,7 @@ def main
   choice = Display_items.new
 
   loop do
-    choices.choose_option
+    choice.choose_option
     input = gets.chomp.to_i
 
     if input == 10
