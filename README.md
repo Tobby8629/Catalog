@@ -23,9 +23,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 LIBRARY_APP <a name="about-project"></a>
+# 📖 Catalog <a name="about-project"></a>
 
-**LIBRARY_APP** This project is a console app that will help me to keep a record of different types of things owned: books, music albums, movies, and games.. To to start up the App in the command prompt, run the following command [Ruby main.rb]
+**Catalog** This project is a console app that will help me to keep a record of different types of things owned: books, music albums, movies, and games.. To to start up the App in the command prompt, run the following command [Ruby main.rb]
 
 
 ## 🛠 Built With <a name="built-with"> RUBY</a>
