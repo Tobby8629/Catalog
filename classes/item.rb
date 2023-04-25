@@ -20,10 +20,6 @@ class Item
     @label = label
   end
 
-  def add_publish_date(date)
-    @date = date
-  end
-
   def can_be_archived?
     current_date = Date.today.year
     publish_date = Date.parse(@publish_date).year
