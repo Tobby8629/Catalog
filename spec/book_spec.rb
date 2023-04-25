@@ -7,26 +7,27 @@ describe Book do
   end
 
   context ': When a book is created, it ' do
-  it 'should be an instance of Book' do
-    expect(@book_a).to be_an_instance_of Book
-    expect(@book_b).to be_an_instance_of Book
-  end
+    it 'should be an instance of Book' do
+      expect(@book_a).to be_an_instance_of Book
+      expect(@book_b).to be_an_instance_of Book
+    end
 
-  it 'should not be archived' do
-    expect(@book_a.archived).to eq(false)
-  end
+    it 'should not be archived' do
+      expect(@book_a.archived).to eq(false)
+    end
 
-  it 'should be archived' do
-    expect(@book_b.archived).to eq(true)
-  end
+    it 'should be archived' do
+      expect(@book_b.archived).to eq(true)
+    end
 
-  it 'should have a publisher' do
-    expect(@book_a.publisher).to eq('Publisher A')
-    expect(@book_b.publisher).to eq('Publisher B')
-  end
+    it 'should have a publisher' do
+      expect(@book_a.publisher).to eq('Publisher A')
+      expect(@book_b.publisher).to eq('Publisher B')
+    end
 
-  it 'should have a cover state' do
-    expect(@book_a.cover_state).to eq('Good')
-    expect(@book_b.cover_state).to eq('Bad')
+    it 'should have a cover state' do
+      expect(@book_a.cover_state).to eq('Good')
+      expect(@book_b.cover_state).to eq('Bad')
+    end
   end
 end
