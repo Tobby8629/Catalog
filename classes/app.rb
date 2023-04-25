@@ -43,4 +43,29 @@ class App
     @labels << new_label
     new_label
   end
+
+  def list_all_books
+    puts ''
+    puts "Book list(#{@books.length}):"
+    puts '--------------'
+    return puts 'No books added yet!' if @books.empty?
+
+    @books.each.with_index(1) do |book, index|
+      publisher = "Publisher: #{book.publisher}, " unless book.publisher.nil?
+      publish_date = "Publish date: #{book.publish_date}, " unless book.publish_date.nil?
+      cover_state = "Cover state: #{book.cover_state}" unless book.cover_state.nil?
+      puts "#{index}. #{publisher}#{publish_date}#{cover_state}"
+    end
+  end
+
+  def list_all_labels
+    puts ''
+    puts "Label list(#{@labels.length}):"
+    puts '---------------'
+    return puts 'No labels added yet!' if @labels.empty?
+
+    @labels.each.with_index(1) do |label, index|
+      puts "#{index}. Name: #{label.name}, Color: #{label.color}, Amount of items: #{label.items.count}"
+    end
+  end
 end
