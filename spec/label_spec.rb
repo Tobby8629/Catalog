@@ -2,7 +2,7 @@ require_relative 'all_methods'
 
 describe Label do
   before :each do
-    @label_a = Label.new(1,'Label A', 'red')
+    @label_a = Label.new(1, 'Label A', 'red')
     @label_b = Label.new(2, 'Label B', 'blue')
   end
 
