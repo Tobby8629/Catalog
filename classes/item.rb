@@ -29,7 +29,6 @@ class Item
   def can_be_archive
     return true if @date > 10
 
-
     false
   end
 
