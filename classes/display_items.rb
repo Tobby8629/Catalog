@@ -1,6 +1,6 @@
 require_relative 'app'
 
-class Display_items
+class DisplayItems
   def initialize
     @app = App.new
   end
@@ -19,17 +19,18 @@ class Display_items
   end
 
   def do_action(input)
-    case input
-    when 1 then @app.display_books
-    when 2 then @app.display_music_albums
-    when 3 then @app.display_games
-    when 4 then @app.display_genres
-    when 5 then @app.display_labels
-    when 6 then @app.display_authors
-    when 7 then @app.add_book
-    when 8 then @app.add_music_album
-    when 9 then @app.add_game
-    when 10 
-    end
+    actions = {
+      1 => @app.list_all_books,
+      2 => @app.list_all_music_albums,
+      3 => @app.list_all_games,
+      4 => @app.list_all_genres,
+      5 => @app.list_all_labels,
+      6 => @app.list_all_authors,
+      7 => @app.add_book,
+      8 => @app.add_music_album,
+      9 => @app.add_game
+    }
+
+    actions[input]
   end
 end

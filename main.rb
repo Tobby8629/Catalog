@@ -1,7 +1,7 @@
 require './classes/display_items'
 
 def main
-  choice = Display_items.new
+  choice = DisplayItems.new
 
   loop do
     choice.choose_option
