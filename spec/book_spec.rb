@@ -12,12 +12,9 @@ describe Book do
       expect(@book_b).to be_an_instance_of Book
     end
 
-    it 'should not be archived' do
-      expect(@book_a.archived).to eq(false)
-    end
-
-    it 'should be archived' do
-      expect(@book_b.archived).to eq(true)
+    it 'should be archived if the cover state is bad' do
+      expect(@book_a.send(:can_be_archived?)).to eq(false)
+      expect(@book_b.send(:can_be_archived?)).to eq(true)
     end
 
     it 'should have a publisher' do
