@@ -8,7 +8,7 @@ def main
     input = gets.chomp.to_i
 
     if input == 10
-      puts "Thanks for using the app, bye!"
+      puts 'Thanks for using the app, bye!'
       break
     end
 

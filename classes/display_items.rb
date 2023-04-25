@@ -17,7 +17,7 @@ class Display_items
     puts '9. Add a game'
     puts '10. Exit'
   end
-  
+
   def do_action(input)
     case input
     when 1 then @app.display_books
@@ -29,6 +29,7 @@ class Display_items
     when 7 then @app.add_book
     when 8 then @app.add_music_album
     when 9 then @app.add_game
+    when 10 
     end
   end
 end

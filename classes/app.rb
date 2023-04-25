@@ -3,7 +3,7 @@ class App
 
   def initialize
     @books = []
-    music_albums = []
-    games = []
+    @music_albums = []
+    @games = []
   end
 end
