@@ -21,8 +21,9 @@ describe Item do
   end
 
   it 'should add label' do
-    @item1.add_label('Favorite')
-    expect(@item1.label).to eq 'Favorite'
+    label = Label.new(1, 'Favorite', 'red')
+    @item1.add_label(label)
+    expect(@item1.label).to eq label
   end
 
   it 'should be able to be archived' do
