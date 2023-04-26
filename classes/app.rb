@@ -1,6 +1,7 @@
 require_relative 'book'
 require_relative 'label'
 require_relative 'create_music'
+require_relative 'music_data'
 
 class App
   attr_reader :books, :music_albums, :games
@@ -84,7 +85,7 @@ class App
       nil
     else
       @music_albums.each_with_index do |each, index|
-        puts "[#{index}] #{each.name}, #{each.genre}, #{each.artist}"
+        puts "[#{index}] #{each.name}, #{each.genre}, #{each.artist} published on #{each.publish_date}"
         puts ''
       end
     end
@@ -109,7 +110,9 @@ class App
         artist: e.artist,
         id: e.id,
         genre: e.genre,
-        on_spotify: e.on_spotify }
+        on_spotify: e.on_spotify,
+        publish_date: e.publish_date
+      }
     end
     music_data(data, 'music.json')
   end

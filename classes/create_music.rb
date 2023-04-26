@@ -29,7 +29,7 @@ def music_info
     puts ' '
     return
   end
-  [name, artist, genre, publish_date, answer]
+  [name, artist, genre, answer, publish_date]
 end
 
 def create_music(musik, genr)

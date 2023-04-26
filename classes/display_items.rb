@@ -35,4 +35,10 @@ class DisplayItems
 
     actions[input].nil? ? puts('Invalid option') : @app.send(actions[input])
   end
+
+  def retrieve_data
+    @app.retrieve_music
+    @app.retrieve_genre
+  end
+  
 end
