@@ -6,6 +6,7 @@ class DisplayItems
   end
 
   def choose_option
+    puts ''
     puts '1. List all books'
     puts '2. List all music albums'
     puts '3. List all games'
@@ -20,17 +21,17 @@ class DisplayItems
 
   def do_action(input)
     actions = {
-      1 => @app.list_all_books,
-      2 => @app.list_all_music_albums,
-      3 => @app.list_all_games,
-      4 => @app.list_all_genres,
-      5 => @app.list_all_labels,
-      6 => @app.list_all_authors,
-      7 => @app.add_book,
-      8 => @app.add_music_album,
-      9 => @app.add_game
+      1 => :list_all_books,
+      2 => :list_all_music_albums,
+      3 => :list_all_games,
+      4 => :list_all_genres,
+      5 => :list_all_labels,
+      6 => :list_all_authors,
+      7 => :add_book,
+      8 => :add_music_album,
+      9 => :add_game
     }
 
-    actions[input]
+    actions[input].nil? ? puts('Invalid option') : @app.send(actions[input])
   end
 end
