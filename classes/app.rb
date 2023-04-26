@@ -11,12 +11,14 @@ class App
   include Music
   include Info
   include GameCreated
+  include GameData
   def initialize
     @books = []
     @music_albums = []
     @games = []
     @labels = []
     @genre = []
+    @authors = []
   end
 
   def add_book
@@ -141,28 +143,37 @@ class App
   def retrieve_genre
     retrieve_data('genre.json', 'genre', @genre)
   end
-  def retrieve_game
-    # retrieve_data('game.json', 'game', @games)
-  end
-# def Add_game
-#   create_game(@games)
-# end
-# def add_game
-#   print 'Is It multiplayer(y/n):'
-#   multiplayer = gets.chomp.downcase
-#   multiplayer = multiplayer == 'y'
+  # def retrieve_game
+  #   # retrieve_data('game.json', 'game', @games)
+  # end
 
-#   print 'Enter the last played at (yyyy-mm-dd):'
-#   last_played_at = gets.chomp
 
-#   print 'Enter the publish date (yyyy-mm-dd):'
-#   publish_date = gets.chomp
-#   game = Game.new(multiplayer, last_played_at, publish_date)
-#   author = author_game
-#   author.add_item(game)
-#   @games << game
-#   puts 'Game has been created successfully!'
-# end
+
+
+  # def save_game_data
+  #   @game_data = []
+  #   @games.each do |game|
+  #     @game_data.push('multiplayer' => game.multiplayer,
+  #                     'last_played_at' => game.last_played_at,
+  #                     'publish_date' => game.publish_date)
+  #   end
+  #   File.write('game.json', JSON.pretty_generate(@game_data))
+  # end
+
+  # def load_game_data
+  #   unless File.exist?('game.json')
+  #     File.write('game.json',
+  #                JSON.pretty_generate([]))
+  #   end
+  #   @game_data = JSON.parse(File.read('game.json'))
+  #   @game_data.each do |game|
+  #     @games.push(Game.new(game['multiplayer'], game['last_played_at'], game['publish_date']))
+  #   end
+  # end
+
+
+
+
   def list_all_games
     puts 'List of Games: '
     puts 'Are empty. Sorry!!!!' if @games.empty?
@@ -173,7 +184,7 @@ class App
     end
   end
   
-  def list_authors
+  def list_all_authors
     puts 'Select the author by number:'
     @authors.each_with_index do |author, index|
       puts "#{index + 1}. #{author.first_name} #{author.last_name}"
