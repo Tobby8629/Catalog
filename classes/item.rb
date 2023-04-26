@@ -22,14 +22,10 @@ class Item
     @label = label
   end
 
-  def add_publish_date(date)
-    @date = date
-  end
-
-  def can_be_archive
-    return true if @date > 10
-
-    false
+  def can_be_archived?
+    current_date = Date.today.year
+    publish_date = Date.parse(@publish_date).year
+    current_date - publish_date > 10
   end
 
   def move_to_archive
