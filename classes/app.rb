@@ -86,6 +86,9 @@ class App
       puts
       nil
     else
+      puts ''
+    puts "Book list(#{@music_albums.length}):"
+    puts '--------------'
       @music_albums.each_with_index do |each, index|
         puts "[#{index}] #{each.name}, #{each.genre}, #{each.artist} published on #{each.publish_date}"
         puts ''
