@@ -1,5 +1,4 @@
-<a name="readme-top">LIBRARY_APP</a>
-
+<a name="readme-top">CATALOG</a>
 
 # 📗 Table of Contents
 
@@ -25,8 +24,7 @@
 
 # 📖 Catalog <a name="about-project"></a>
 
-**Catalog** This project is a console app that will help me to keep a record of different types of things owned: books, music albums, movies, and games.. To to start up the App in the command prompt, run the following command [Ruby main.rb]
-
+> This project is a console application that allows the user to keep track of their possessions. It allows the user to manage various types of items such as books, music albums, and games.
 
 ## 🛠 Built With <a name="built-with"> RUBY</a>
 
@@ -46,18 +44,21 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **create record for books**
-- **create record of music Album**
-- **Add a movie**
-- **Add a game**
-- **List all books**
-- **List all music albums**
-- **List all movies**
-- **List of games**
-- **List all genres**
-- **List all labels**
-- **List all authors**
-- **List all sources**
+- **Modular Implementation**
+
+> Each class is implemented in a separate .rb file, allowing for easy management of the codebase.
+
+- **Custom Setters**
+
+> Custom setters for 1-to-many relationships allow for easy management of collections.
+
+- **User Interface**
+
+> The user interface provides users with a list of options to perform, making it easy to manage the system.
+
+- **Data Persistence**
+
+> All data is saved in .json files, ensuring that user data is preserved between sessions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -71,30 +72,26 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-
 ### Setup
 
 Clone this repository to your desired folder:
+
 ```sh
   cd my-folder
   git clone https://github.com/Tobby8629/Catalog.git
-  
+
 ```
 
 ### Install
 
-Install this project with:
-  cd my-project
-  gem install bundler
-
+Install this project with: cd my-project gem install bundler
 
 ### Run tests
+
 ```
 To run application, run the following command:
 ruby main.rb
 ```
-
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -118,9 +115,7 @@ ruby main.rb
 
 - GitHub: [Miles Moseswu](https://github.com/Timbar09)
 - Twitter: [@Milez09](https://twitter.com/Milez09)
-- LinkedIn: [Miles Moseswu](https://www.linkedin.com/in/miles09)
-
-
+- LinkedIn: [Miles Moseswu](https://www.linkedin.com/in/miles-mosweu09)
 
 <!-- FUTURE FEATURES -->
 
@@ -128,7 +123,6 @@ ruby main.rb
 
 - [ ] **record of watches**
 - [ ] **record of sneakers**
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
