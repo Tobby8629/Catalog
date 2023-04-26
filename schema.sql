@@ -35,3 +35,11 @@ CREATE TABLE books(
   Item_id INTEGER REFERENCES Item(id),
   PRIMARY KEY (id)
 );
+
+-- Create label table
+CREATE TABLE labels(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(50),
+  color VARCHAR(50),
+  PRIMARY KEY (id)
+);
