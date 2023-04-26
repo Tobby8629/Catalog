@@ -1,10 +1,12 @@
 require_relative 'book'
 require_relative 'label'
+require_relative 'preserve_data'
 
 class App
   attr_reader :books, :music_albums, :games
 
   def initialize
+    @data = Data.new
     @books = []
     @music_albums = []
     @games = []
@@ -26,6 +28,7 @@ class App
     new_label = add_label
     new_book.add_label(new_label)
     @books << new_book
+    @data.store_book(new_book)
     puts ''
     puts 'Book added successfully!'
   end
