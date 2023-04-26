@@ -25,3 +25,29 @@ CREATE TABLE MusicAlbum(
   name VARCHAR(50),
   genre INTEGER REFERENCES genre(id)
 );
+
+-- Create book table share association with label
+CREATE TABLE books(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  published_date DATE,
+  publisher VARCHAR(50),
+  cover_state VARCHAR(50),
+  Item_id INTEGER REFERENCES Item(id),
+  PRIMARY KEY (id)
+);
+
+-- Create label table
+CREATE TABLE labels(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(50),
+  color VARCHAR(50),
+  PRIMARY KEY (id)
+);
+
+-- Create items_labels table
+CREATE TABLE items_labels(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  item_id INTEGER REFERENCES items(id),
+  label_id INTEGER REFERENCES labels(id),
+  PRIMARY KEY (id)
+);

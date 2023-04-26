@@ -10,7 +10,7 @@ class App
   include Music
   include Info
   def initialize
-    @data = Data.new
+    @data = PreserveData.new
     @books = @data.load_books
     @music_albums = []
     @games = []
@@ -33,6 +33,8 @@ class App
     new_label = add_label
     new_book.add_label(new_label)
     @books << new_book
+    @labels << new_label
+    @data.store_label(new_label)
     @data.store_book(new_book)
     puts ''
     puts 'Book added successfully!'
@@ -47,10 +49,7 @@ class App
     print 'Color: '
     color = gets.chomp
 
-    new_label = Label.new(nil, name, color)
-    @labels << new_label
-    @data.store_label(new_label)
-    new_label
+    Label.new(nil, name, color)
   end
 
   def list_all_books

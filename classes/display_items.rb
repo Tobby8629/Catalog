@@ -7,7 +7,7 @@ class DisplayItems
 
   def choose_option
     puts ''
-    puts 'Welcome To My Catalog'
+    puts 'Please choose an option from the list below:'
     puts '1. List all books'
     puts '2. List all music albums'
     puts '3. List all games'
@@ -17,7 +17,7 @@ class DisplayItems
     puts '7. Add a book'
     puts '8. Add a music album'
     puts '9. Add a game'
-    puts '10. Exit'
+    puts '0. Exit'
   end
 
   def do_action(input)

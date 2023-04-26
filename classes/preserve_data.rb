@@ -2,7 +2,7 @@ require 'json'
 require_relative 'book'
 require_relative 'label'
 
-class Data
+class PreserveData
   attr_accessor :books, :labels
 
   def initialize
@@ -24,7 +24,7 @@ class Data
   end
 
   def store_label(label)
-    label_json = { id: label.id, name: label.name, color: label.color }
+    label_json = { id: label.id, name: label.name, color: label.color, items: label.items.map(&:id) }
 
     if File.size?('./data/labels.json')
       labels = JSON.parse(File.read('./data/labels.json'))
@@ -54,7 +54,6 @@ class Data
       labels = JSON.parse(File.read('./data/labels.json'))
       labels.each do |label|
         new_label = Label.new(label['id'], label['name'], label['color'])
-        new_label.items = load_books.select { |book| book.label.id == new_label.id }
         @labels << new_label
       end
     end
