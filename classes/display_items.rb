@@ -40,5 +40,4 @@ class DisplayItems
     @app.retrieve_music
     @app.retrieve_genre
   end
-  
 end

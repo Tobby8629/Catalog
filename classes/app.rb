@@ -111,8 +111,7 @@ class App
         id: e.id,
         genre: e.genre,
         on_spotify: e.on_spotify,
-        publish_date: e.publish_date
-      }
+        publish_date: e.publish_date }
     end
     music_data(data, 'music.json')
   end

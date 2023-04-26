@@ -14,7 +14,8 @@ def retrieve_data(location, res, arr)
       parsed_data = JSON.parse(data)
       if res == 'album'
         parsed_data.map do |data|
-          fresh = MusicAlbum.new(data['name'], data['genre'], data['artist'], data['on_spotify'], data['publish_date'], data['id'])
+          fresh = MusicAlbum.new(data['name'], data['genre'], data['artist'], data['on_spotify'], data['publish_date'],
+                                 data['id'])
           arr << fresh
         end
       elsif res == 'genre'

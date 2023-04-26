@@ -2,7 +2,7 @@ require_relative 'all_methods'
 
 describe Genre do
   before :each do
-   @genre = Genre.new( 'hip-pop')
+    @genre = Genre.new('hip-pop')
   end
   context ':When music is created' do
     it 'to be an instance of Genre' do
