@@ -2,12 +2,15 @@ require_relative 'book'
 require_relative 'label'
 require './modules/create_music'
 require './modules/music_data'
+require './modules/create_game'
+require './modules/game_data'
 
 class App
   attr_reader :books, :music_albums, :games
 
   include Music
   include Info
+  include GameCreated
   def initialize
     @books = []
     @music_albums = []
@@ -138,4 +141,43 @@ class App
   def retrieve_genre
     retrieve_data('genre.json', 'genre', @genre)
   end
+  def retrieve_game
+    # retrieve_data('game.json', 'game', @games)
+  end
+# def Add_game
+#   create_game(@games)
+# end
+# def add_game
+#   print 'Is It multiplayer(y/n):'
+#   multiplayer = gets.chomp.downcase
+#   multiplayer = multiplayer == 'y'
+
+#   print 'Enter the last played at (yyyy-mm-dd):'
+#   last_played_at = gets.chomp
+
+#   print 'Enter the publish date (yyyy-mm-dd):'
+#   publish_date = gets.chomp
+#   game = Game.new(multiplayer, last_played_at, publish_date)
+#   author = author_game
+#   author.add_item(game)
+#   @games << game
+#   puts 'Game has been created successfully!'
+# end
+  def list_all_games
+    puts 'List of Games: '
+    puts 'Are empty. Sorry!!!!' if @games.empty?
+    @games.each_with_index do |game, index|
+      puts "#{index + 1} Multiplayer: #{game.multiplayer},
+      Last played at: #{game.last_played_at},
+      Publish date: #{game.publish_date}"
+    end
+  end
+  
+  def list_authors
+    puts 'Select the author by number:'
+    @authors.each_with_index do |author, index|
+      puts "#{index + 1}. #{author.first_name} #{author.last_name}"
+    end
+  end
+
 end
