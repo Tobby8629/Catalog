@@ -2,7 +2,7 @@ require 'json'
 require_relative 'book'
 require_relative 'label'
 
-class Data
+class PreserveData
   attr_accessor :books, :labels
 
   def initialize

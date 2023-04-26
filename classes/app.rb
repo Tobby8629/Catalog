@@ -10,7 +10,7 @@ class App
   include Music
   include Info
   def initialize
-    @data = Data.new
+    @data = PreserveData.new
     @books = @data.load_books
     @music_albums = []
     @games = []
