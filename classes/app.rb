@@ -1,10 +1,11 @@
 require_relative 'book'
 require_relative 'label'
+require_relative 'author'
 require './modules/create_music'
 require './modules/music_data'
 require './modules/create_game'
 require './modules/game_data'
-
+require 'json'
 class App
   attr_reader :books, :music_albums, :games
 
@@ -18,7 +19,7 @@ class App
     @games = []
     @labels = []
     @genre = []
-    @authors = []
+    @authors = [Author.new('John', 'Doe'), Author.new('Abed', 'Achour'), Author.new('Mike', 'Tyson')]
   end
 
   def add_book
@@ -129,6 +130,7 @@ class App
     music_data(data, 'music.json')
   end
 
+
   def preserve_genre
     data = @genre.map do |e|
       { name: e.name, id: e.id }
@@ -136,6 +138,14 @@ class App
     music_data(data, 'genre.json')
   end
 
+  # def preserve_game
+  #   data = @games.map do |e|
+  #     { multiplayer: e.multiplayer,
+  #     last_played_at: e.last_played_at,
+  #       publish_date: e.publish_date }
+  #   end
+  #   game_data(data, 'game.json')
+  # end
   def retrieve_music
     retrieve_data('music.json', 'album', @music_albums)
   end
@@ -143,35 +153,9 @@ class App
   def retrieve_genre
     retrieve_data('genre.json', 'genre', @genre)
   end
-  # def retrieve_game
-  #   # retrieve_data('game.json', 'game', @games)
-  # end
-
-
-
-
-  # def save_game_data
-  #   @game_data = []
-  #   @games.each do |game|
-  #     @game_data.push('multiplayer' => game.multiplayer,
-  #                     'last_played_at' => game.last_played_at,
-  #                     'publish_date' => game.publish_date)
-  #   end
-  #   File.write('game.json', JSON.pretty_generate(@game_data))
-  # end
-
-  # def load_game_data
-  #   unless File.exist?('game.json')
-  #     File.write('game.json',
-  #                JSON.pretty_generate([]))
-  #   end
-  #   @game_data = JSON.parse(File.read('game.json'))
-  #   @game_data.each do |game|
-  #     @games.push(Game.new(game['multiplayer'], game['last_played_at'], game['publish_date']))
-  #   end
-  # end
-
-
+  def retrieve_game
+    # retrieve_data('game.json','game',@games)
+  end
 
 
   def list_all_games
