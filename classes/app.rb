@@ -1,11 +1,13 @@
 require_relative 'book'
 require_relative 'label'
-require_relative 'create_music'
-require_relative 'music_data'
+require './modules/create_music'
+require './modules/music_data'
 
 class App
   attr_reader :books, :music_albums, :games
 
+  include Music
+  include Info
   def initialize
     @books = []
     @music_albums = []
