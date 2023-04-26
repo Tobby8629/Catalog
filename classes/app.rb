@@ -44,6 +44,7 @@ class App
 
     new_label = Label.new(nil, name, color)
     @labels << new_label
+    @data.store_label(new_label)
     new_label
   end
 
