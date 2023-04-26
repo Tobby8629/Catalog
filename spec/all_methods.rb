@@ -1,3 +1,5 @@
 require './classes/item'
 require './classes/book'
 require './classes/label'
+require './classes/music'
+require './classes/genre'

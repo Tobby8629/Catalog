@@ -2,6 +2,7 @@ require './classes/display_items'
 
 def main
   choice = DisplayItems.new
+  choice.retrieve_data
 
   loop do
     choice.choose_option
