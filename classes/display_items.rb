@@ -7,6 +7,7 @@ class DisplayItems
 
   def choose_option
     puts ''
+    puts 'Welcome To My Catalog'
     puts '1. List all books'
     puts '2. List all music albums'
     puts '3. List all games'
