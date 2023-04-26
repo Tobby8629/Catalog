@@ -12,15 +12,15 @@ class Data
 
   def store_book(book)
     book_json = { id: book.id, publish_date: book.publish_date, publisher: book.publisher,
-     cover_state: book.cover_state, label_id: book.label.id }
+                  cover_state: book.cover_state, label_id: book.label.id }
 
-     if File.size?('./data/books.json')
+    if File.size?('./data/books.json')
       books = JSON.parse(File.read('./data/books.json'))
       books << book_json
       File.write('./data/books.json', JSON.pretty_generate(books))
     else
       File.write('./data/books.json', JSON.pretty_generate([book_json]))
-    end  
+    end
   end
 
   def store_label(label)
@@ -39,7 +39,7 @@ class Data
     if File.size?('./data/books.json')
       books = JSON.parse(File.read('./data/books.json'))
       books.each do |book|
-        label = load_labels.find { |label| label.id == book['label_id'] }
+        label = load_labels.find { |label_item| label_item.id == book['label_id'] }
         new_book = Book.new(book['id'], book['publish_date'], book['publisher'], book['cover_state'])
         new_book.add_label(label)
         @books << new_book
