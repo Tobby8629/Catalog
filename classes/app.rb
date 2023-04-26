@@ -7,10 +7,10 @@ class App
 
   def initialize
     @data = Data.new
-    @books = []
+    @books = @data.load_books
     @music_albums = []
     @games = []
-    @labels = []
+    @labels = @data.load_labels
   end
 
   def add_book
@@ -58,7 +58,8 @@ class App
       publisher = "Publisher: #{book.publisher}, " unless book.publisher.nil?
       publish_date = "Publish date: #{book.publish_date}, " unless book.publish_date.nil?
       cover_state = "Cover state: #{book.cover_state}" unless book.cover_state.nil?
-      puts "#{index}. #{publisher}#{publish_date}#{cover_state}"
+      label = "Label: #{book.label.name}" unless book.label.nil?
+      puts "#{index}. #{publisher}#{publish_date}#{cover_state} #{label}"
     end
   end
 
