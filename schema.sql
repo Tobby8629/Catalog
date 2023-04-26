@@ -43,3 +43,11 @@ CREATE TABLE labels(
   color VARCHAR(50),
   PRIMARY KEY (id)
 );
+
+-- Create items_labels table
+CREATE TABLE items_labels(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  item_id INTEGER REFERENCES items(id),
+  label_id INTEGER REFERENCES labels(id),
+  PRIMARY KEY (id)
+);
