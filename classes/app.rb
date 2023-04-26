@@ -1,14 +1,19 @@
 require_relative 'book'
 require_relative 'label'
+require './modules/create_music'
+require './modules/music_data'
 
 class App
   attr_reader :books, :music_albums, :games
 
+  include Music
+  include Info
   def initialize
     @books = []
     @music_albums = []
     @games = []
     @labels = []
+    @genre = []
   end
 
   def add_book
@@ -67,5 +72,70 @@ class App
     @labels.each.with_index(1) do |label, index|
       puts "#{index}. Name: #{label.name}, Color: #{label.color}, Amount of items: #{label.items.count}"
     end
+  end
+
+  def add_music_album
+    create_music(@music_albums, @genre)
+    preserve_music
+    preserve_genre
+  end
+
+  def list_all_music_albums
+    if @music_albums == []
+      puts 'your music album is empty! Add some cool album'
+      puts
+      nil
+    else
+      puts ''
+      puts "Album lists(#{@music_albums.length}):"
+      puts '--------------'
+      @music_albums.each_with_index do |each, index|
+        puts "[#{index}] #{each.name}, #{each.genre}, #{each.artist} published on #{each.publish_date}"
+        puts ''
+      end
+    end
+  end
+
+  def list_all_genres
+    if @genre == []
+      puts 'your genre is curretly empty, add a new genre!'
+      puts
+      nil
+    else
+      puts ''
+      puts "Genre lists(#{@music_albums.length}):"
+      puts '--------------'
+      @genre.each_with_index do |each, index|
+        puts "[#{index}] #{each.name}"
+        puts ''
+      end
+    end
+  end
+
+  def preserve_music
+    data = @music_albums.map do |e|
+      { name: e.name,
+        artist: e.artist,
+        id: e.id,
+        genre: e.genre,
+        on_spotify: e.on_spotify,
+        publish_date: e.publish_date }
+    end
+    music_data(data, 'music.json')
+  end
+
+  def preserve_genre
+    data = @genre.map do |e|
+      { name: e.name, id: e.id }
+    end
+    music_data(data, 'genre.json')
+  end
+
+  def retrieve_music
+    retrieve_data('music.json', 'album', @music_albums)
+  end
+
+  def retrieve_genre
+    retrieve_data('genre.json', 'genre', @genre)
   end
 end

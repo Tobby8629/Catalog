@@ -7,6 +7,7 @@ class DisplayItems
 
   def choose_option
     puts ''
+    puts 'Welcome To My Catalog'
     puts '1. List all books'
     puts '2. List all music albums'
     puts '3. List all games'
@@ -33,5 +34,10 @@ class DisplayItems
     }
 
     actions[input].nil? ? puts('Invalid option') : @app.send(actions[input])
+  end
+
+  def retrieve_data
+    @app.retrieve_music
+    @app.retrieve_genre
   end
 end
