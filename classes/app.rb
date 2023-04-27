@@ -22,7 +22,6 @@ class App
     @labels = @data.load_labels
     @genre = []
     @authors = []
-
   end
 
   def add_book
@@ -135,7 +134,6 @@ class App
     music_data(data, 'music.json')
   end
 
-
   def preserve_genre
     data = @genre.map do |e|
       { name: e.name, id: e.id }
@@ -160,12 +158,11 @@ class App
       Publish date: #{game.publish_date}"
     end
   end
-  
+
   def list_all_authors
     puts 'Select the author by number:'
     @authors.each_with_index do |author, index|
       puts "#{index + 1}. #{author.first_name} #{author.last_name}"
     end
   end
-
 end

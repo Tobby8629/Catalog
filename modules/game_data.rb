@@ -3,8 +3,9 @@ require './classes/game'
 
 module GameData
   def save_game_data(game)
-    game_json = {id: game.id, multiplayer: game.multiplayer, last_played_at: game.last_played_at, publish_date: game.publish_date}
-    
+    game_json = { id: game.id, multiplayer: game.multiplayer, last_played_at: game.last_played_at,
+                  publish_date: game.publish_date }
+
     if File.size?('./data/game_data/game.json')
       game = JSON.parse(File.read('./data/game_data/game.json'))
       game << game_json
@@ -12,7 +13,6 @@ module GameData
     else
       File.write('./data/game_data/game.json', JSON.pretty_generate([game_json]))
     end
-
   end
 
   def save_author_data(author)
@@ -26,7 +26,6 @@ module GameData
       File.write('./data/game_data/author.json', JSON.pretty_generate([author_json]))
     end
   end
-
 
   def load_game_data
     unless File.exist?('./data/game_data/game.json')
@@ -43,12 +42,11 @@ module GameData
     if File.size?('./data/game_data/author.json')
       authors = JSON.parse(File.read('./data/game_data/author.json'))
       authors.each do |author|
-        new_author = Author.new(author['id'], author['first_name'], author['last_name'] )
+        new_author = Author.new(author['id'], author['first_name'], author['last_name'])
         @authors << new_author
       end
     end
 
     @authors
   end
-
 end
