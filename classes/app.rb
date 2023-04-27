@@ -21,7 +21,7 @@ class App
     @games = []
     @labels = @data.load_labels
     @genre = []
-    @authors = [Author.new('John', 'Doe'), Author.new('Abed', 'Achour'), Author.new('Mike', 'Tyson')]
+    @authors = []
 
   end
 

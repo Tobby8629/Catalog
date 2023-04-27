@@ -15,6 +15,19 @@ module GameData
 
   end
 
+  def save_author_data(author)
+    author_json = { id: author.id, first_name: author.first_name, last_name: author.last_name }
+
+    if File.size?('./data/game_data/author.json')
+      authors = JSON.parse(File.read('./data/game_data/author.json'))
+      authors << author_json
+      File.write('./data/game_data/author.json', JSON.pretty_generate(authors))
+    else
+      File.write('./data/game_data/author.json', JSON.pretty_generate([author_json]))
+    end
+  end
+
+
   def load_game_data
     unless File.exist?('./data/game_data/game.json')
       File.write('./data/game_data/game.json',
@@ -25,4 +38,17 @@ module GameData
       @games.push(Game.new(game['multiplayer'], game['last_played_at'], game['publish_date']))
     end
   end
+
+  def load_author_data
+    if File.size?('./data/game_data/author.json')
+      authors = JSON.parse(File.read('./data/game_data/author.json'))
+      authors.each do |author|
+        new_author = Author.new(author['id'], author['first_name'], author['last_name'] )
+        @authors << new_author
+      end
+    end
+
+    @authors
+  end
+
 end
