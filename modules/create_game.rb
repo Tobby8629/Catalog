@@ -1,7 +1,7 @@
-require_relative './classes/game'
-
+require './classes/game'
+require_relative 'game_data'
 module GameCreated
-
+include GameData
 def add_game
   print 'Is It multiplayer(y/n):'
   multiplayer = gets.chomp.downcase
@@ -13,9 +13,10 @@ def add_game
   print 'Enter the publish date (yyyy-mm-dd):'
   publish_date = gets.chomp
   new_game = Game.new(multiplayer, last_played_at, publish_date)
-  author = author
-  new_game.author
+  # author = author
+  # new_game.author
   @games << new_game
+save_game_data(new_game)
   puts 'Game has been created successfully!'
 end
 end
