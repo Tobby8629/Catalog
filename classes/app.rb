@@ -19,8 +19,7 @@ class App
   end
 
   def add_book
-    puts ''
-    puts 'Enter the following book details'
+    puts "\nEnter the following book details"
     puts '--------------------------------'
     print 'Publisher: '
     publisher = gets.chomp
@@ -35,14 +34,12 @@ class App
     @books << new_book
     if @labels.include?(label)
       @data.update_label(label)
-      @data.store_book(new_book)
     else
       @labels << label
       @data.store_label(label)
-      @data.store_book(new_book)
     end
-    puts ''
-    puts 'Book added successfully!'
+    @data.store_book(new_book)
+    puts "\nBook added successfully!"
   end
 
   def add_label
@@ -62,10 +59,10 @@ class App
       add_label
     else
       puts ''
-      puts 'Do you want to use an existing label?' 
+      puts 'Do you want to use an existing label?'
       list_all_labels
       puts ''
-      print 'YES(y) or NO(n): '   
+      print 'YES(y) or NO(n): '
       answer = gets.chomp
       if answer == 'y'
         puts ''

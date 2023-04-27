@@ -37,14 +37,14 @@ class PreserveData
 
   def update_label(label)
     label_json = { id: label.id, name: label.name, color: label.color, items: label.items.map(&:id) }
-    
-    if File.size?('./data/labels.json')
-      labels = JSON.parse(File.read('./data/labels.json'))
-      labels.each_with_index do |label_item, index|
-        if label_item['id'] == label.id
-          labels[index] = label_json
-          File.write('./data/labels.json', JSON.pretty_generate(labels))
-        end
+
+    return unless File.size?('./data/labels.json')
+
+    labels = JSON.parse(File.read('./data/labels.json'))
+    labels.each_with_index do |label_item, index|
+      if label_item['id'] == label.id
+        labels[index] = label_json
+        File.write('./data/labels.json', JSON.pretty_generate(labels))
       end
     end
   end
