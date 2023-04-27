@@ -20,6 +20,7 @@ class App
     @labels = []
     @genre = []
     @authors = [Author.new('John', 'Doe'), Author.new('Abed', 'Achour'), Author.new('Mike', 'Tyson')]
+
   end
 
   def add_book
@@ -138,14 +139,6 @@ class App
     music_data(data, 'genre.json')
   end
 
-  # def preserve_game
-  #   data = @games.map do |e|
-  #     { multiplayer: e.multiplayer,
-  #     last_played_at: e.last_played_at,
-  #       publish_date: e.publish_date }
-  #   end
-  #   game_data(data, 'game.json')
-  # end
   def retrieve_music
     retrieve_data('music.json', 'album', @music_albums)
   end
@@ -153,10 +146,6 @@ class App
   def retrieve_genre
     retrieve_data('genre.json', 'genre', @genre)
   end
-  def retrieve_game
-    # retrieve_data('game.json','game',@games)
-  end
-
 
   def list_all_games
     puts 'List of Games: '

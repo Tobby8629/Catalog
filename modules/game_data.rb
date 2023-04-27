@@ -1,5 +1,5 @@
 require 'json'
-require './classes/game'
+require '../classes/game'
 
 module GameData
   def save_game_data
@@ -9,15 +9,15 @@ module GameData
                       'last_played_at' => game.last_played_at,
                       'publish_date' => game.publish_date)
     end
-    File.write('game.json', JSON.pretty_generate(@game_data))
+    File.write('../data/game_data/game.json', JSON.pretty_generate(@game_data))
   end
 
   def load_game_data
-    unless File.exist?('game.json')
-      File.write('game.json',
+    unless File.exist?('../data/game_data/game.json')
+      File.write('../data/game_data/game.json',
                  JSON.pretty_generate([]))
     end
-    @game_data = JSON.parse(File.read('game.json'))
+    @game_data = JSON.parse(File.read('../data/game_data/game.json'))
     @game_data.each do |game|
       @games.push(Game.new(game['multiplayer'], game['last_played_at'], game['publish_date']))
     end

@@ -39,6 +39,5 @@ class DisplayItems
   def retrieve_data
     @app.retrieve_music
     @app.retrieve_genre
-    @app.retrieve_game
   end
 end
