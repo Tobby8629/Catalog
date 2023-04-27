@@ -1,8 +1,8 @@
-require_relative '../classes/game'
+require_relative 'all_methods'
 
 describe Game do
-  let(:game1) { Game.new(1, '03-05-2005', true, '02-04-2020') }
-  let(:game2) { Game.new(2, '15-12-2021', false, '02-04-2022') }
+  let(:game1) { Game.new('2005-12-22', true, '2012-04-03', 1) }
+  let(:game2) { Game.new('2021-12-22', false, '2022-12-22', 2) }
 
   context 'attributes' do
     it 'has a multiplayer attribute' do
@@ -10,7 +10,7 @@ describe Game do
     end
 
     it 'has a last played at attribute' do
-      expect(game1.last_played_at).to eq('02-04-2020')
+      expect(game1.last_played_at).to eq('2012-04-03')
     end
   end
 
