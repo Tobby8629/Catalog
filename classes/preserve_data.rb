@@ -35,29 +35,45 @@ class PreserveData
     end
   end
 
+  def update_label(label)
+    label_json = { id: label.id, name: label.name, color: label.color, items: label.items.map(&:id) }
+    
+    if File.size?('./data/labels.json')
+      labels = JSON.parse(File.read('./data/labels.json'))
+      labels.each_with_index do |label_item, index|
+        if label_item['id'] == label.id
+          labels[index] = label_json
+          File.write('./data/labels.json', JSON.pretty_generate(labels))
+        end
+      end
+    end
+  end
+
   def load_books
+    books_arr = []
     if File.size?('./data/books.json')
       books = JSON.parse(File.read('./data/books.json'))
       books.each do |book|
         label = load_labels.find { |label_item| label_item.id == book['label_id'] }
         new_book = Book.new(book['id'], book['publish_date'], book['publisher'], book['cover_state'])
         new_book.add_label(label)
-        @books << new_book
+        books_arr << new_book
       end
     end
 
-    @books
+    books_arr
   end
 
   def load_labels
+    labels_arr = []
     if File.size?('./data/labels.json')
       labels = JSON.parse(File.read('./data/labels.json'))
       labels.each do |label|
         new_label = Label.new(label['id'], label['name'], label['color'])
-        @labels << new_label
+        labels_arr << new_label
       end
     end
 
-    @labels
+    labels_arr
   end
 end
