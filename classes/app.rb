@@ -1,6 +1,7 @@
 require_relative 'book'
 require_relative 'label'
 require_relative 'author'
+require_relative 'preserve_data'
 require './modules/create_music'
 require './modules/music_data'
 require './modules/create_game'
@@ -14,10 +15,11 @@ class App
   include GameCreated
   include GameData
   def initialize
-    @books = []
+    @data = PreserveData.new
+    @books = @data.load_books
     @music_albums = []
     @games = []
-    @labels = []
+    @labels = @data.load_labels
     @genre = []
     @authors = [Author.new('John', 'Doe'), Author.new('Abed', 'Achour'), Author.new('Mike', 'Tyson')]
 
@@ -38,6 +40,9 @@ class App
     new_label = add_label
     new_book.add_label(new_label)
     @books << new_book
+    @labels << new_label
+    @data.store_label(new_label)
+    @data.store_book(new_book)
     puts ''
     puts 'Book added successfully!'
   end
@@ -51,9 +56,7 @@ class App
     print 'Color: '
     color = gets.chomp
 
-    new_label = Label.new(nil, name, color)
-    @labels << new_label
-    new_label
+    Label.new(nil, name, color)
   end
 
   def list_all_books
@@ -66,7 +69,8 @@ class App
       publisher = "Publisher: #{book.publisher}, " unless book.publisher.nil?
       publish_date = "Publish date: #{book.publish_date}, " unless book.publish_date.nil?
       cover_state = "Cover state: #{book.cover_state}" unless book.cover_state.nil?
-      puts "#{index}. #{publisher}#{publish_date}#{cover_state}"
+      label = "Label: #{book.label.name}" unless book.label.nil?
+      puts "#{index}. #{publisher}#{publish_date}#{cover_state} #{label}"
     end
   end
 
