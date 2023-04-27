@@ -1,9 +1,23 @@
 [
   {
-    "id": 569,
-    "publish_date": "2022-12-12",
-    "publisher": "Aubin",
-    "cover_state": "good",
-    "label_id": 635
+    "id": 761,
+    "publish_date": "12-12-1999",
+    "publisher": "Me",
+    "cover_state": "Bad",
+    "label_id": 231
+  },
+  {
+    "id": 52,
+    "publish_date": "01-01-1800",
+    "publisher": "King",
+    "cover_state": "Bad",
+    "label_id": 23
+  },
+  {
+    "id": 326,
+    "publish_date": "01-01-1000",
+    "publisher": "Cave Man",
+    "cover_state": "Bad",
+    "label_id": 231
   }
 ]
