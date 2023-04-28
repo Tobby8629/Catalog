@@ -51,9 +51,8 @@ class App
     @books.each.with_index(1) do |book, index|
       publisher = "Publisher: #{book.publisher}, " unless book.publisher.nil?
       publish_date = "Publish date: #{book.publish_date}, " unless book.publish_date.nil?
-      cover_state = "Cover state: #{book.cover_state}, " unless book.cover_state.nil?
-      label = "Label: #{book.label.name}" unless book.label.nil?
-      puts "#{index}. #{publisher}#{publish_date}#{cover_state} #{label}"
+      cover_state = "Cover state: #{book.cover_state}" unless book.cover_state.nil?
+      puts "#{index}. #{publisher}#{publish_date}#{cover_state}"
     end
   end
 

@@ -33,5 +33,19 @@
     "publisher": "Miles",
     "cover_state": "Excellent",
     "label_id": 623
+  },
+  {
+    "id": 710,
+    "publish_date": "12/07/1978",
+    "publisher": "chinua achebe",
+    "cover_state": "good",
+    "label_id": 231
+  },
+  {
+    "id": 198,
+    "publish_date": "12/12/2016",
+    "publisher": "tobby",
+    "cover_state": "excellent",
+    "label_id": 623
   }
 ]

@@ -7,7 +7,7 @@ module BookData
                   cover_state: book.cover_state, label_id: book.label.id }
 
     if File.size?('./data/book_data/books.json')
-      books = JSON.parse(File.read('./data/books.json'))
+      books = JSON.parse(File.read('./data/book_data/books.json'))
       books << book_json
       File.write('./data/book_data/books.json', JSON.pretty_generate(books))
     else
@@ -19,7 +19,7 @@ module BookData
     label_json = { id: label.id, name: label.name, color: label.color, items: label.items.map(&:id) }
 
     if File.size?('./data/book_data/labels.json')
-      labels = JSON.parse(File.read('./data/labels.json'))
+      labels = JSON.parse(File.read('./data/book_data/labels.json'))
       labels << label_json
       File.write('./data/book_data/labels.json', JSON.pretty_generate(labels))
     else
