@@ -14,7 +14,7 @@ module GameCreated
 
     print 'Enter the publish date (yyyy-mm-dd):'
     publish_date = gets.chomp
-    new_game = Game.new(multiplayer, last_played_at, publish_date)
+    new_game = Game.new( publish_date, multiplayer, last_played_at)
     new_author = add_author
     new_game.add_author(new_author)
     @games << new_game

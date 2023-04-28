@@ -4,7 +4,7 @@ require './classes/music'
 
 module Info
   def music_data(data, location)
-    json_data = JSON.generate(data)
+    json_data = JSON.pretty_generate(data)
     File.write("./data/music_data/#{location}", json_data)
   end
 
