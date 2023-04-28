@@ -24,7 +24,7 @@
 
 # 📖 Catalog <a name="about-project"></a>
 
-> This project is a console application that allows the user to keep track of their possessions. It allows the user to manage various types of items such as books, music albums, and games. Here is a link to the video describing the application [Click](https://drive.google.com/drive/u/0/folders/1XwY5BwALptbISD5PAGEVwMO30yw9oK9l)
+> This project is a console application that allows the user to keep track of their possessions. It allows the user to manage various types of items such as books, music albums, and games. Here is a link to the video describing the application [Click](https://drive.google.com/file/d/1l6qvR440HsW5f3chsJSR33TYC4geMlCy/view?usp=sharing)
 
 ## 🛠 Built With <a name="built-with"> RUBY</a>
 
