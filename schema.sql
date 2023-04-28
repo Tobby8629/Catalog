@@ -21,7 +21,6 @@ CREATE TABLE MusicAlbum(
   id INTEGER PRIMARY KEY,
   on_spotify BOOLEAN,
   published_date DATE,
-  artist VARCHAR(50),
   name VARCHAR(50),
   genre INTEGER REFERENCES genre(id)
 );

@@ -2,7 +2,7 @@ require_relative 'all_methods'
 
 describe MusicAlbum do
   before :each do
-    @music = MusicAlbum.new('takecare', 'hip-pop', 'drake', true, '2004-12-12')
+    @music = MusicAlbum.new('takecare', 'hip-pop', true, '2004-12-12')
   end
   context ':When music is created' do
     it 'to be an instance of MusicAlbum' do

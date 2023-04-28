@@ -1,7 +1,3 @@
-# require_relative 'book'
-# require_relative 'label'
-# require_relative 'author'
-# require_relative 'preserve_data'
 require 'json'
 require './modules/info'
 
@@ -89,7 +85,7 @@ class App
       puts "\nAlbum lists(#{@music_albums.length}):"
       puts '--------------'
       @music_albums.each_with_index do |each, index|
-        puts "[#{index}] #{each.name}, #{each.genre}, #{each.artist} published on #{each.publish_date}"
+        puts "[#{index}] #{each.name}, #{each.genre} published on #{each.publish_date}"
       end
     end
   end
@@ -111,7 +107,6 @@ class App
   def preserve_music
     data = @music_albums.map do |e|
       { name: e.name,
-        artist: e.artist,
         id: e.id,
         genre: e.genre,
         on_spotify: e.on_spotify,

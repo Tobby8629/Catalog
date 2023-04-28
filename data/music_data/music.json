@@ -1,7 +1,6 @@
 [
   {
     "name": "Conspiracy",
-    "artist": "J_hus",
     "id": 782,
     "genre": "Grime",
     "on_spotify": true,
@@ -9,7 +8,6 @@
   },
   {
     "name": "We're all together",
-    "artist": "Dave",
     "id": 212,
     "genre": "Grimm",
     "on_spotify": false,
@@ -17,7 +15,6 @@
   },
   {
     "name": "Psycho",
-    "artist": "Dave",
     "id": 836,
     "genre": "Grime",
     "on_spotify": true,
@@ -25,7 +22,6 @@
   },
   {
     "name": "Timeless",
-    "artist": "Davido",
     "id": 842,
     "genre": "Hip-pop",
     "on_spotify": true,
@@ -33,7 +29,6 @@
   },
   {
     "name": "Bob marley and the wailers",
-    "artist": "Bob marley",
     "id": 649,
     "genre": "Reggae",
     "on_spotify": false,
@@ -41,7 +36,6 @@
   },
   {
     "name": "Coolest",
-    "artist": "Booster",
     "id": 853,
     "genre": "Hiphop",
     "on_spotify": true,
@@ -49,10 +43,16 @@
   },
   {
     "name": "African giant",
-    "artist": "Burna boy",
     "id": 258,
     "genre": "Hip-pop",
     "on_spotify": true,
     "publish_date": "12/6/2018"
+  },
+  {
+    "name": "Forever",
+    "id": 806,
+    "genre": "Blue",
+    "on_spotify": false,
+    "publish_date": "1/1/2012"
   }
 ]

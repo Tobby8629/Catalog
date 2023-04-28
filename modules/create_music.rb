@@ -11,8 +11,6 @@ module Music
     puts 'Enter the following album details'
     puts 'Title of album'
     name = gets.chomp.capitalize
-    puts 'Artist'
-    artist = gets.chomp.capitalize
     puts 'Genre of album'
     genre = gets.chomp.capitalize
     puts 'Date of album release (day-month-year)'
@@ -27,7 +25,7 @@ module Music
       puts 'Invalid answer!!'
       return
     end
-    [name, artist, genre, answer, publish_date]
+    [name, genre, answer, publish_date]
   end
 
   def create_music(musik, genr)
@@ -35,11 +33,10 @@ module Music
     return if value.nil?
 
     name = value[0]
-    artist = value[1]
-    genre = value[2]
-    answer = value[3]
-    publish_date = value[4]
-    music = MusicAlbum.new(name, genre, artist, answer, publish_date)
+    genre = value[1]
+    answer = value[2]
+    publish_date = value[3]
+    music = MusicAlbum.new(name, genre, answer, publish_date)
     musik.push(music)
     exist = @genre.find { |e| e.name == genre }
     return if exist

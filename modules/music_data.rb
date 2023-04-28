@@ -15,7 +15,7 @@ module Info
         parsed_data = JSON.parse(data)
         if res == 'album'
           parsed_data.map do |data|
-            fresh = MusicAlbum.new(data['name'], data['genre'], data['artist'], data['on_spotify'],
+            fresh = MusicAlbum.new(data['name'], data['genre'], data['on_spotify'],
                                    data['publish_date'], data['id'])
             arr << fresh
           end
