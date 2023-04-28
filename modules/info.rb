@@ -1,0 +1,6 @@
+require_relative 'create_book'
+require_relative 'create_music'
+require_relative 'create_game'
+require_relative 'book_data'
+require_relative 'music_data'
+require_relative 'game_data'

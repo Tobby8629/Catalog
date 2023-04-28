@@ -1,13 +1,10 @@
-require_relative 'book'
-require_relative 'label'
-require_relative 'author'
-require_relative 'preserve_data'
-require './modules/create_music'
-require './modules/create_book'
-require './modules/music_data'
-require './modules/create_game'
-require './modules/game_data'
+# require_relative 'book'
+# require_relative 'label'
+# require_relative 'author'
+# require_relative 'preserve_data'
 require 'json'
+require './modules/info'
+
 class App
   attr_reader :books, :music_albums, :games
 
@@ -16,9 +13,9 @@ class App
   include GameCreated
   include GameData
   include CreateBooks
+  include BookData
 
   def initialize
-    @data = PreserveData.new
     @books = []
     @music_albums = []
     @games = []
@@ -54,7 +51,7 @@ class App
     @books.each.with_index(1) do |book, index|
       publisher = "Publisher: #{book.publisher}, " unless book.publisher.nil?
       publish_date = "Publish date: #{book.publish_date}, " unless book.publish_date.nil?
-      cover_state = "Cover state: #{book.cover_state}" unless book.cover_state.nil?
+      cover_state = "Cover state: #{book.cover_state}, " unless book.cover_state.nil?
       label = "Label: #{book.label.name}" unless book.label.nil?
       puts "#{index}. #{publisher}#{publish_date}#{cover_state} #{label}"
     end
@@ -71,11 +68,11 @@ class App
   end
 
   def retrieve_book
-    @data.load_books(@books, @labels)
+    load_books(@books, @labels)
   end
 
   def retrieve_label
-    @data.load_labels(@labels)
+    load_labels(@labels)
   end
 
   def add_music_album

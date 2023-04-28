@@ -17,12 +17,12 @@ module CreateBooks
     new_book.add_label(label)
     @books << new_book
     if @labels.include?(label)
-      @data.update_label(label)
+      update_label(label)
     else
       @labels << label
-      @data.store_label(label)
+      store_label(label)
     end
-    @data.store_book(new_book)
+    store_book(new_book)
     puts "\nBook added successfully!"
   end
 
