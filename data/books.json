@@ -19,5 +19,12 @@
     "publisher": "Cave Man",
     "cover_state": "Bad",
     "label_id": 231
+  },
+  {
+    "id": 474,
+    "publish_date": "01-01-2013",
+    "publisher": "R. R. Martin",
+    "cover_state": "Good",
+    "label_id": 437
   }
 ]
