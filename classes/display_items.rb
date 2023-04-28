@@ -37,8 +37,8 @@ class DisplayItems
   end
 
   def retrieve_data
-    @app.get_book
-    @app.get_label
+    @app.retrieve_book
+    @app.retrieve_label
     @app.retrieve_music
     @app.retrieve_genre
   end

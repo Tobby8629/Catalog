@@ -96,11 +96,11 @@ class App
     end
   end
 
-  def get_book
+  def retrieve_book
     @data.load_books(@books, @labels)
   end
 
-  def get_label
+  def retrieve_label
     @data.load_labels(@labels)
   end
 
