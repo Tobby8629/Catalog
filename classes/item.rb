@@ -19,6 +19,7 @@ class Item
 
   def add_label(label)
     @label = label
+    return if label.nil?
     label.items << self unless label.items.include?(self)
   end
 

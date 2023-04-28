@@ -73,7 +73,6 @@ class App
   end
 
   def list_all_books
-    @books = @data.load_books
     puts "\nBook list(#{@books.length}):"
     puts '--------------'
     return puts 'No books added yet!' if @books.empty?
@@ -88,7 +87,6 @@ class App
   end
 
   def list_all_labels
-    @labels = @data.load_labels
     puts "\nLabel list(#{@labels.length}):"
     puts '---------------'
     return puts 'No labels added yet!' if @labels.empty?
@@ -96,6 +94,14 @@ class App
     @labels.each.with_index(1) do |label, index|
       puts "#{index}. Name: #{label.name}, Color: #{label.color}"
     end
+  end
+
+  def get_book
+    @data.load_books(@books, @labels)
+  end
+
+  def get_label
+    @data.load_labels(@labels)
   end
 
   def add_music_album
