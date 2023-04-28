@@ -122,12 +122,10 @@ class App
       puts
       nil
     else
-      puts ''
-      puts "Album lists(#{@music_albums.length}):"
+      puts "\nAlbum lists(#{@music_albums.length}):"
       puts '--------------'
       @music_albums.each_with_index do |each, index|
         puts "[#{index}] #{each.name}, #{each.genre}, #{each.artist} published on #{each.publish_date}"
-        puts ''
       end
     end
   end
@@ -138,12 +136,10 @@ class App
       puts
       nil
     else
-      puts ''
-      puts "Genre lists(#{@music_albums.length}):"
+      puts "\nGenre lists(#{@music_albums.length}):"
       puts '--------------'
       @genre.each_with_index do |each, index|
-        puts "[#{index}] #{each.name}"
-        puts ''
+        puts "[#{index}] #{each.name}\n\n"
       end
     end
   end
@@ -179,9 +175,10 @@ class App
     puts 'List of Games: '
     puts 'Are empty. Sorry!!!!' if @games.empty?
     @games.each_with_index do |game, index|
-      puts "#{index + 1} Multiplayer: #{game.multiplayer},
-      Last played at: #{game.last_played_at},
-      Publish date: #{game.publish_date}"
+      multiplayer1 = "#{index + 1} Multiplayer: #{game.multiplayer},"
+      last_played_at1 = "Last played at: #{game.last_played_at},"
+      publish_date1 = "Publish date: #{game.publish_date}"
+      puts "#{multiplayer1} #{last_played_at1} #{publish_date1}"
     end
   end
 
@@ -190,5 +187,13 @@ class App
     @authors.each_with_index do |author, index|
       puts "#{index + 1}. #{author.first_name} #{author.last_name}"
     end
+  end
+
+  def retrieve_games
+    load_game_data(@games)
+  end
+
+  def retrieve_authors
+    load_author_data(@authors)
   end
 end

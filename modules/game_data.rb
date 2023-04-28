@@ -27,26 +27,28 @@ module GameData
     end
   end
 
-  def load_game_data
-    unless File.exist?('./data/game_data/game.json')
-      File.write('./data/game_data/game.json',
-                 JSON.pretty_generate([]))
+  def load_game_data(games_arr)
+    if File.size?('./data/game_data/game.json')
+      games = JSON.parse(File.read('./data/game_data/game.json'))
+      games.each do |game|
+        new_game = Game.new(game['publish_date'], game['multiplayer'], game['last_played_at'], game['id'])
+
+        games_arr << new_game
+      end
     end
-    @game_data = JSON.parse(File.read('./data/game_data/game.json'))
-    @game_data.each do |game|
-      @games.push(Game.new(game['multiplayer'], game['last_played_at'], game['publish_date']))
-    end
+
+    games_arr
   end
 
-  def load_author_data
+  def load_author_data(authors_arr)
     if File.size?('./data/game_data/author.json')
       authors = JSON.parse(File.read('./data/game_data/author.json'))
       authors.each do |author|
         new_author = Author.new(author['id'], author['first_name'], author['last_name'])
-        @authors << new_author
+        authors_arr << new_author
       end
     end
 
-    @authors
+    authors_arr
   end
 end
