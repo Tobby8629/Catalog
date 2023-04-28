@@ -44,7 +44,7 @@ module GameData
     if File.size?('./data/game_data/author.json')
       authors = JSON.parse(File.read('./data/game_data/author.json'))
       authors.each do |author|
-        new_author = Author.new(author['id'], author['first_name'], author['last_name'])
+        new_author = Author.new(author['first_name'], author['last_name'], author['id'])
         authors_arr << new_author
       end
     end
