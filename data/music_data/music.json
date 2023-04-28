@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Conspiracy",
+    "id": 782,
+    "genre": "Grime",
+    "on_spotify": true,
+    "publish_date": "15-03-2020"
+  },
+  {
+    "name": "We're all together",
+    "id": 212,
+    "genre": "Grimm",
+    "on_spotify": false,
+    "publish_date": "4/4/2021"
+  },
+  {
+    "name": "Psycho",
+    "id": 836,
+    "genre": "Grime",
+    "on_spotify": true,
+    "publish_date": "10/6/2018"
+  },
+  {
+    "name": "Timeless",
+    "id": 842,
+    "genre": "Hip-pop",
+    "on_spotify": true,
+    "publish_date": "15/04/2023"
+  },
+  {
+    "name": "Bob marley and the wailers",
+    "id": 649,
+    "genre": "Reggae",
+    "on_spotify": false,
+    "publish_date": "13/6/1986"
+  },
+  {
+    "name": "Coolest",
+    "id": 853,
+    "genre": "Hiphop",
+    "on_spotify": true,
+    "publish_date": "21-03-2020"
+  },
+  {
+    "name": "African giant",
+    "id": 258,
+    "genre": "Hip-pop",
+    "on_spotify": true,
+    "publish_date": "12/6/2018"
+  },
+  {
+    "name": "Forever",
+    "id": 806,
+    "genre": "Blue",
+    "on_spotify": false,
+    "publish_date": "1/1/2012"
+  }
+]

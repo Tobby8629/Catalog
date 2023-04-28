@@ -1,0 +1,34 @@
+[
+  {
+    "id": 231,
+    "name": "History",
+    "color": "Black",
+    "items": [
+      710
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Religion",
+    "color": "White",
+    "items": [
+      52
+    ]
+  },
+  {
+    "id": 437,
+    "name": "Fantasy",
+    "color": "Purple",
+    "items": [
+      474
+    ]
+  },
+  {
+    "id": 623,
+    "name": "Sports",
+    "color": "Gold",
+    "items": [
+      198
+    ]
+  }
+]
