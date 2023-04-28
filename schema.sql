@@ -51,3 +51,24 @@ CREATE TABLE items_labels(
   label_id INTEGER REFERENCES labels(id),
   PRIMARY KEY (id)
 );
+
+-- Create Game table
+CREATE TABLE games (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  genre_id INTEGER,
+  author_id INTEGER REFERENCES author(id),
+  source_id INTEGER,
+  label_id INTEGER ,
+  published_date INTEGER,
+  archived BOOLEAN
+  last_played_at VARCHAR,
+  multiplayer VARCHAR
+ 
+);
+--Create Author table
+CREATE TABLE author (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    first_name VARCHAR,
+    last_name VARCHAR,
+    items VARCHAR(80)[]
+)
