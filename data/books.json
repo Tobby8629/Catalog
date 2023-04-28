@@ -26,5 +26,12 @@
     "publisher": "R. R. Martin",
     "cover_state": "Good",
     "label_id": 437
+  },
+  {
+    "id": 247,
+    "publish_date": "12-12-2005",
+    "publisher": "Miles",
+    "cover_state": "Excellent",
+    "label_id": 623
   }
 ]
