@@ -43,8 +43,7 @@ class App
   end
 
   def add_label
-    puts ''
-    puts 'Assign a label to the book'
+    puts "\nAssign a label to the book"
     puts '--------------------------'
     print 'Name: '
     name = gets.chomp
@@ -58,15 +57,12 @@ class App
     if @labels.empty?
       add_label
     else
-      puts ''
-      puts 'Do you want to use an existing label?'
+      puts "\nDo you want to use an existing label?"
       list_all_labels
-      puts ''
-      print 'YES(y) or NO(n): '
+      print "\nYES(y) or NO(n): "
       answer = gets.chomp
       if answer == 'y'
-        puts ''
-        puts 'Enter a label number from the list above:'
+        puts "\nEnter a label number from the list above."
         print 'Label number: '
         label_number = gets.chomp.to_i
         @labels[label_number - 1]
@@ -78,8 +74,7 @@ class App
 
   def list_all_books
     @books = @data.load_books
-    puts ''
-    puts "Book list(#{@books.length}):"
+    puts "\nBook list(#{@books.length}):"
     puts '--------------'
     return puts 'No books added yet!' if @books.empty?
 
@@ -94,8 +89,7 @@ class App
 
   def list_all_labels
     @labels = @data.load_labels
-    puts ''
-    puts "Label list(#{@labels.length}):"
+    puts "\nLabel list(#{@labels.length}):"
     puts '---------------'
     return puts 'No labels added yet!' if @labels.empty?
 
