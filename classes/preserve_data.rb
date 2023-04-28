@@ -49,12 +49,11 @@ class PreserveData
     end
   end
 
-  def load_books
-    books_arr = []
+  def load_books(books_arr, labels_arr)
     if File.size?('./data/books.json')
       books = JSON.parse(File.read('./data/books.json'))
       books.each do |book|
-        label = load_labels.find { |label_item| label_item.id == book['label_id'] }
+        label = labels_arr.find { |label_item| label_item.id == book['label_id'] }
         new_book = Book.new(book['id'], book['publish_date'], book['publisher'], book['cover_state'])
         new_book.add_label(label)
         books_arr << new_book
@@ -64,8 +63,7 @@ class PreserveData
     books_arr
   end
 
-  def load_labels
-    labels_arr = []
+  def load_labels(labels_arr)
     if File.size?('./data/labels.json')
       labels = JSON.parse(File.read('./data/labels.json'))
       labels.each do |label|
