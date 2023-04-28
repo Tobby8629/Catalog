@@ -14,9 +14,8 @@ describe Author do
   end
 
   describe '#add_author' do
-    it 'should add an author to the author' do
-      item = double
-      allow(item).to receive(:author=).with(author)
+    it 'should add an author to the items' do
+      item = Item.new(10, '2022-12-25')
       author.add_author(item)
       expect(author.items).to include(item)
     end
