@@ -15,6 +15,9 @@ class Item
 
   def add_author(author)
     @author = author
+    return if author.nil?
+
+    author.items << self unless author.items.include?(self)
   end
 
   def add_label(label)

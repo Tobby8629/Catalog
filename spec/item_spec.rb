@@ -16,8 +16,9 @@ describe Item do
   end
 
   it 'should add author' do
-    @item2.add_author('Stephen King')
-    expect(@item2.author).to eq 'Stephen King'
+    author = Author.new('John', 'Doe')
+    @item2.add_author(author)
+    expect(@item2.author).to eq author
   end
 
   it 'should add label' do

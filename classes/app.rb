@@ -1,15 +1,20 @@
 require_relative 'book'
 require_relative 'label'
+require_relative 'author'
 require_relative 'preserve_data'
 require './modules/create_music'
 require './modules/create_book'
 require './modules/music_data'
-
+require './modules/create_game'
+require './modules/game_data'
+require 'json'
 class App
   attr_reader :books, :music_albums, :games
 
   include Music
   include Info
+  include GameCreated
+  include GameData
   include CreateBooks
 
   def initialize
@@ -19,6 +24,7 @@ class App
     @games = []
     @labels = []
     @genre = []
+    @authors = []
   end
 
   def existing_or_new_label
@@ -84,12 +90,10 @@ class App
       puts
       nil
     else
-      puts ''
-      puts "Album lists(#{@music_albums.length}):"
+      puts "\nAlbum lists(#{@music_albums.length}):"
       puts '--------------'
       @music_albums.each_with_index do |each, index|
         puts "[#{index}] #{each.name}, #{each.genre}, #{each.artist} published on #{each.publish_date}"
-        puts ''
       end
     end
   end
@@ -100,12 +104,10 @@ class App
       puts
       nil
     else
-      puts ''
-      puts "Genre lists(#{@music_albums.length}):"
+      puts "\nGenre lists(#{@music_albums.length}):"
       puts '--------------'
       @genre.each_with_index do |each, index|
-        puts "[#{index}] #{each.name}"
-        puts ''
+        puts "[#{index}] #{each.name}\n\n"
       end
     end
   end
@@ -135,5 +137,31 @@ class App
 
   def retrieve_genre
     retrieve_data('genre.json', 'genre', @genre)
+  end
+
+  def list_all_games
+    puts 'List of Games: '
+    puts 'Are empty. Sorry!!!!' if @games.empty?
+    @games.each_with_index do |game, index|
+      multiplayer1 = "#{index + 1} Multiplayer: #{game.multiplayer},"
+      last_played_at1 = "Last played at: #{game.last_played_at},"
+      publish_date1 = "Publish date: #{game.publish_date}"
+      puts "#{multiplayer1} #{last_played_at1} #{publish_date1}"
+    end
+  end
+
+  def list_all_authors
+    puts 'Select the author by number:'
+    @authors.each_with_index do |author, index|
+      puts "#{index + 1}. #{author.first_name} #{author.last_name}"
+    end
+  end
+
+  def retrieve_games
+    load_game_data(@games)
+  end
+
+  def retrieve_authors
+    load_author_data(@authors)
   end
 end

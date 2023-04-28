@@ -41,5 +41,7 @@ class DisplayItems
     @app.retrieve_label
     @app.retrieve_music
     @app.retrieve_genre
+    @app.retrieve_games
+    @app.retrieve_authors
   end
 end
