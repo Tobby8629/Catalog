@@ -28,7 +28,11 @@ module BookData
   end
 
   def update_label(label)
-    label_json = { id: label.id, name: label.name, color: label.color, items: label.items.map(&:id) }
+    label.items.map! do |item|
+      item.is_a?(Book) ? item.id : item
+    end
+
+    label_json = { id: label.id, name: label.name, color: label.color, items: label.items }
 
     return unless File.size?('./data/book_data/labels.json')
 
@@ -55,11 +59,13 @@ module BookData
     books_arr
   end
 
-  def load_labels(labels_arr)
+  def load_labels(labels_arr, book_arr)
     if File.size?('./data/book_data/labels.json')
       labels = JSON.parse(File.read('./data/book_data/labels.json'))
       labels.each do |label|
         new_label = Label.new(label['id'], label['name'], label['color'])
+        books = book_arr.select { |book| label['items'].include?(book.id) }
+        books.each { |book| new_label.add_label(book) }
         labels_arr << new_label
       end
     end

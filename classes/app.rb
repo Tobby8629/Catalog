@@ -20,25 +20,6 @@ class App
     @authors = []
   end
 
-  def existing_or_new_label
-    if @labels.empty?
-      add_label
-    else
-      puts "\nDo you want to use an existing label?"
-      list_all_labels
-      print "\nYES(y) or NO(n): "
-      answer = gets.chomp
-      if answer == 'y'
-        puts "\nEnter a label number from the list above."
-        print 'Label number: '
-        label_number = gets.chomp.to_i
-        @labels[label_number - 1]
-      else
-        add_label
-      end
-    end
-  end
-
   def list_all_books
     puts "\nBook list(#{@books.length}):"
     puts '--------------'
@@ -47,8 +28,9 @@ class App
     @books.each.with_index(1) do |book, index|
       publisher = "Publisher: #{book.publisher}, " unless book.publisher.nil?
       publish_date = "Publish date: #{book.publish_date}, " unless book.publish_date.nil?
-      cover_state = "Cover state: #{book.cover_state}" unless book.cover_state.nil?
-      puts "#{index}. #{publisher}#{publish_date}#{cover_state}"
+      cover_state = "Cover state: #{book.cover_state}, " unless book.cover_state.nil?
+      label = "Label: #{book.label.name}" unless book.label.nil?
+      puts "#{index}. #{publisher}#{publish_date}#{cover_state}#{label}"
     end
   end
 
@@ -58,7 +40,7 @@ class App
     return puts 'No labels added yet!' if @labels.empty?
 
     @labels.each.with_index(1) do |label, index|
-      puts "#{index}. Name: #{label.name}, Color: #{label.color}"
+      puts "#{index}. Name: #{label.name}, Color: #{label.color}, Items: #{label.items.length}"
     end
   end
 
@@ -67,7 +49,7 @@ class App
   end
 
   def retrieve_label
-    load_labels(@labels)
+    load_labels(@labels, @books)
   end
 
   def add_music_album

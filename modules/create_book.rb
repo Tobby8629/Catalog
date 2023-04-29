@@ -36,4 +36,23 @@ module CreateBooks
 
     Label.new(nil, name, color)
   end
+
+  def existing_or_new_label
+    if @labels.empty?
+      add_label
+    else
+      puts "\nDo you want to use an existing label?"
+      list_all_labels
+      print "\nYES(y) or NO(n): "
+      answer = gets.chomp
+      if answer == 'y'
+        puts "\nEnter a label number from the list above."
+        print 'Label number: '
+        label_number = gets.chomp.to_i
+        @labels[label_number - 1]
+      else
+        add_label
+      end
+    end
+  end
 end

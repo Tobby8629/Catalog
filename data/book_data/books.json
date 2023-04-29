@@ -1,12 +1,5 @@
 [
   {
-    "id": 761,
-    "publish_date": "12-12-1999",
-    "publisher": "Me",
-    "cover_state": "Bad",
-    "label_id": 231
-  },
-  {
     "id": 52,
     "publish_date": "01-01-1800",
     "publisher": "King",
@@ -14,25 +7,11 @@
     "label_id": 23
   },
   {
-    "id": 326,
-    "publish_date": "01-01-1000",
-    "publisher": "Cave Man",
-    "cover_state": "Bad",
-    "label_id": 231
-  },
-  {
     "id": 474,
     "publish_date": "01-01-2013",
     "publisher": "R. R. Martin",
     "cover_state": "Good",
     "label_id": 437
-  },
-  {
-    "id": 247,
-    "publish_date": "12-12-2005",
-    "publisher": "Miles",
-    "cover_state": "Excellent",
-    "label_id": 623
   },
   {
     "id": 710,
@@ -47,5 +26,26 @@
     "publisher": "tobby",
     "cover_state": "excellent",
     "label_id": 623
+  },
+  {
+    "id": 451,
+    "publish_date": "12-12-1999",
+    "publisher": "Me",
+    "cover_state": "Bad",
+    "label_id": 623
+  },
+  {
+    "id": 453,
+    "publish_date": "01-01-1000",
+    "publisher": "Cave Man",
+    "cover_state": "Bad",
+    "label_id": 231
+  },
+  {
+    "id": 882,
+    "publish_date": "12-12-2005",
+    "publisher": "Miles",
+    "cover_state": "Excellent",
+    "label_id": 437
   }
 ]
