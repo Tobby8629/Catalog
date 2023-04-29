@@ -41,18 +41,22 @@ module CreateBooks
     if @labels.empty?
       add_label
     else
-      puts "\nDo you want to use an existing label?"
+      puts "\nEnter an existing label number(1-#{@labels.count}) or 'n' to create a new label"
       list_all_labels
-      print "\nYES(y) or NO(n): "
-      answer = gets.chomp
-      if answer == 'y'
-        puts "\nEnter a label number from the list above."
-        print 'Label number: '
-        label_number = gets.chomp.to_i
-        @labels[label_number - 1]
-      else
-        add_label
-      end
+      choose_label
+    end
+  end
+
+  def choose_label
+    print "\nExisting label number or 'n': "
+    answer = gets.chomp
+    if answer.to_i.to_s == answer && answer.to_i.between?(1, @labels.count)
+      @labels[answer.to_i - 1]
+    elsif answer == 'n'
+      add_label
+    else
+      puts "\nInvalid input, try again!"
+      choose
     end
   end
 end

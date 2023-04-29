@@ -6,8 +6,7 @@ class DisplayItems
   end
 
   def choose_option
-    puts ''
-    puts 'Please choose an option from the list below:'
+    puts "\nPlease choose an option from the list below:"
     puts '1. List all books'
     puts '2. List all music albums'
     puts '3. List all games'
